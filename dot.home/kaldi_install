@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# In Kaldi tool folder
+sudo apt-get install zlib1g-dev automake autoconf sox gfortran libtool subversion
+sudo /extras/install_mkl.sh
+sudo make -j 8
+# IF IRSTLM is needed then (also in tool folder) run:
+sudo extras/install_irstlm.sh
+# Dont forget to source the tools/env.sh in your path.sh to enable it(only if IRSTLM) 
+
+# In src folder
+# deactivate the thrust/CUB check by commenting the last error in /usr/include/thrust/system/cuda/config.h
+./configure --shared
+make depend -j 8
+make -j 8
+

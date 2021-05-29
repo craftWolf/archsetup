@@ -1,0 +1,47 @@
+May 21 01:38 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+May 21 01:38 : update: added /Marshmello - Stars (Official Music Video)-A57B7B6w3kw.webm
+May 21 01:38 : update: added /Rise - Katy Perry - 320kbps.mp3
+May 21 01:38 : update: added /NEFFEX - Destiny 🙌   [Copyright Free]-watchv=24C8r8JupYY.mp4
+May 21 01:38 : avahi: Service 'Music Player @ debian' successfully established.
+May 21 01:38 : client: [0] opened from [::1]:34564
+May 21 01:39 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+May 21 01:39 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+May 21 01:42 : ffmpeg/opus: Could not update timestamps for discarded samples.
+May 21 01:42 : player: played "Marshmello - Stars (Official Music Video)-A57B7B6w3kw.webm"
+May 21 01:43 : client: [0] closed
+May 21 01:46 : ffmpeg/opus: Could not update timestamps for discarded samples.
+May 21 01:46 : player: played "Marshmello - Stars (Official Music Video)-A57B7B6w3kw.webm"
+May 21 01:48 : player: played "NEFFEX - Destiny 🙌   [Copyright Free]-watchv=24C8r8JupYY.mp4"
+May 21 01:51 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+May 21 01:51 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+May 21 01:51 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+May 21 01:51 : avahi: Service 'Music Player @ debian' successfully established.
+May 21 01:52 : player: played "NEFFEX - Destiny 🙌   [Copyright Free]-watchv=24C8r8JupYY.mp4"
+May 21 01:56 : player: played "Rise - Katy Perry - 320kbps.mp3"
+May 21 01:59 : ffmpeg/opus: Could not update timestamps for discarded samples.
+May 21 01:59 : player: played "Marshmello - Stars (Official Music Video)-A57B7B6w3kw.webm"
+May 21 02:03 : player: played "NEFFEX - Destiny 🙌   [Copyright Free]-watchv=24C8r8JupYY.mp4"
+May 21 02:06 : player: played "Rise - Katy Perry - 320kbps.mp3"
+May 21 02:09 : ffmpeg/opus: Could not update timestamps for discarded samples.
+May 21 02:09 : player: played "Marshmello - Stars (Official Music Video)-A57B7B6w3kw.webm"
+May 21 02:13 : player: played "NEFFEX - Destiny 🙌   [Copyright Free]-watchv=24C8r8JupYY.mp4"
+May 21 02:16 : player: played "Rise - Katy Perry - 320kbps.mp3"
+May 21 02:20 : ffmpeg/opus: Could not update timestamps for discarded samples.
+May 21 02:20 : player: played "Marshmello - Stars (Official Music Video)-A57B7B6w3kw.webm"
+May 21 02:23 : player: played "NEFFEX - Destiny 🙌   [Copyright Free]-watchv=24C8r8JupYY.mp4"
+May 21 02:27 : player: played "Rise - Katy Perry - 320kbps.mp3"
+May 21 02:30 : ffmpeg/opus: Could not update timestamps for discarded samples.
+May 21 02:30 : player: played "Marshmello - Stars (Official Music Video)-A57B7B6w3kw.webm"
+May 21 02:33 : player: played "NEFFEX - Destiny 🙌   [Copyright Free]-watchv=24C8r8JupYY.mp4"
+May 21 02:37 : player: played "Rise - Katy Perry - 320kbps.mp3"
+May 21 02:40 : ffmpeg/opus: Could not update timestamps for discarded samples.
+May 21 02:40 : player: played "Marshmello - Stars (Official Music Video)-A57B7B6w3kw.webm"
+May 21 02:41 : client: [0] opened from [::1]:49806
+May 21 02:42 : client: [0] closed
+May 21 02:44 : avahi: Client Disconnected, will reconnect shortly
+May 21 02:44 : player: played "NEFFEX - Destiny 🙌   [Copyright Free]-watchv=24C8r8JupYY.mp4"
+May 21 11:11 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+May 21 11:11 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+May 21 11:11 : avahi: Service 'Music Player @ debian' successfully established.
+May 24 02:51 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+May 24 11:17 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
