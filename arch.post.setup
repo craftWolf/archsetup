@@ -36,7 +36,7 @@ cd ~/.local/packages
 git clone https://aur.archlinux.org/i8kutils.git 
 cd i8kutils
 makepkg
-pacman -U *.pkg.tar.zst
+sudo pacman -U *.pkg.tar.zst
 cd ~
 
 # Copy dell-bios-off, fan modules, systemd-login, xorg.conf
