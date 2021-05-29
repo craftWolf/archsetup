@@ -1,0 +1,82 @@
+#!/bin/bash
+
+ask_continue () {
+	read -p "$1" -n 1 -r
+	echo # (optional) move to a new line
+	if [[ ! $REPLY =~ ^[Yy]$ ]]
+	then
+        echo "Exiting now !"
+	    exit 1
+	fi
+}
+
+echo "your username: $1"
+echo "your hostname: $2"
+echo "your EFI partition is at: $3"
+ask_continue "Are you sure ? (y/n) "
+
+
+## Install Kernel
+pacman -S linux-lts linux-lts-headers linux-firmware intel-ucode
+
+## Install Some packages
+pacman -S nano base-devel openssh
+
+## Install network packages
+pacman -S networkmanager wpa_supplicant wireless_tools netctl
+pacman -S dialog
+
+## Enable networkmanager at boot
+systemctl enable NetworkManager
+
+## Change locale : uncomment your locale
+nano /etc/locale.gen 
+locale-gen 
+
+## Create user and add to groups
+useradd -m -g users -G wheel $1
+
+## Set password for user
+passwd $1
+
+
+## Edit `sudo` config: uncomment %wheel ALL=(ALL) ALL
+echo "uncomment %wheel ALL=(ALL) ALL"
+ask_continue " Got it, continue ? (y/n) "
+EDITOR=nano visudo
+
+# Install GRUB
+
+## Install the packages for GRUB
+pacman -S grub efibootmgr dosfstools os-prober mtools
+
+## Mount boot EFI
+mkdir /boot/EFI
+mount $3 /boot/EFI
+
+## Install GRUB for EFI
+grub-install --target=x86_64-efi --bootloader-id=arch --recheck
+
+## Check and Create `locale` directory
+ls -l /boot/grub 
+mkdir /boot/grub/locale
+
+## Add locales for grub messages
+cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
+
+## Generate GRUB conf
+grub-mkconfig -o /boot/grub/grub.cfg
+
+# Tweaking Arch Installation
+
+## Setting Timezone
+timedatectl set-timezones Europe/Amsterdam
+systemctl enable systemd-timesyncd
+
+## Setting Hostname
+hostnamectl set-hostname $2
+
+## Add ip to localhost :  127.0.0.1 localhost
+## Add ip to host :  127.0.1.1 host-name-here
+echo "127.0.0.1 localhost" >> /etc/hosts
+echo "127.0.1.1 $2" >> /etc/hosts

@@ -1,0 +1,35 @@
+#!/bin/bash
+
+ask_continue () {
+	read -p "$1" -n 1 -r
+	echo # (optional) move to a new line
+	if [[ ! $REPLY =~ ^[Yy]$ ]]
+	then
+        echo "Exiting now !"
+	    exit 1
+	fi
+}
+
+echo "your EFI partition  : $1"
+echo "your ROOT partition : $2"
+echo "your HOME partition :  $3"
+ask_continue "Are you sure ? (y/n) "
+
+# Format the created EFI partition 1
+mkfs.fat -F32   $1
+
+# Format /dev/sda2 to ext4 and mount /mnt
+mkfs.ext4 $2
+mount $2 /mnt 
+
+# Format /dev/sda3 to ext4 and mount /mnt/home
+mkfs.ext4 $3
+mkdir /mnt/home
+mount $3 /mnt/home
+
+# Create FSTAB
+mkdir /mnt/etc
+genfstab -U -p /mnt >> /mnt/etc/fstab
+
+# Installing Arch Linux Base packages
+pacstrap -i /mnt base 
