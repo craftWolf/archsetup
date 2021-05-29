@@ -1,0 +1,10 @@
+# Mozzila Spyware disable
+
+rm -rf ~/.mozilla
+sudo rm -rf /usr/lib/firefox-esr/browser/features/*
+wget https://raw.githubusercontent.com/arkenfox/user.js/master/user.js
+firefox -no-remote -ProfileManager
+# empty the folder of the created profile
+# Move user.js to the create profile and start firefox
+
+
