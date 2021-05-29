@@ -15,8 +15,6 @@ echo "your hostname: $2"
 echo "your EFI partition is at: $3"
 ask_continue "Are you sure ? (y/n) "
 
-mkdir downloads files music pictures templates videos workspace
-
 ## Install Kernel
 pacman -S linux-lts linux-lts-headers linux-firmware intel-ucode
 
@@ -81,58 +79,7 @@ hostnamectl set-hostname "$2"
 ## Add ip to host :  127.0.1.1 host-name-here
 echo "127.0.0.1 localhost" >> /etc/hosts
 echo "127.0.1.1 $2" >> /etc/hosts
-sudo pacman -S xorg-server xorg-xinput xorg-xinit awesome linux-lts-headers htop neofetch  rofi ranger pcmanfm gvfs firefox chromium lxappearance docker docker-compose lm_sensors pavucontrol pulseaudio psensor python-pip openjdk-src ttf-fira-code  ttf-font-awesome ttf-hack vim keepassxc simplescreenrecorder obs-studio zathura gnome-screenshot engrampa breeze openvpn wget curl mpd ncmpcpp cmatrix vlc cheese qt5ct ffmpeg ffmpegthumbnailer poppler gedit alacritty lxsession-gtk3
+sudo pacman -S xorg-server xorg-xinput xorg-xinit awesome linux-lts-headers htop neofetch  rofi ranger pcmanfm gvfs firefox chromium lxappearance docker docker-compose lm_sensors pavucontrol pulseaudio psensor python-pip openjdk-src ttf-fira-code  ttf-font-awesome ttf-hack vim keepassxc simplescreenrecorder obs-studio zathura gnome-screenshot engrampa breeze openvpn wget curl mpd ncmpcpp cmatrix vlc cheese qt5ct ffmpeg ffmpegthumbnailer poppler gedit alacritty lxsession-gtk3 imagemagick cronie
 
-# Copy xinit config
-cp .xinitrc ~/
+exit
 
-# Copy dell-bios-off, fan modules, systemd-login, xorg.conf
-sudo cp ~/archsetup/dot.system/dell-bios-off 		/opt/
-sudo cp ~/archsetup/dot.system/modules 				/etc
-sudo cp ~/archsetup/dot.system/xorg.conf 			/etc/X11
-sudo cp ~/archsetup/dot.system/dell-smm-hwmon.conf 	/etc/modprobe.d/
-sudo cp ~/archsetup/dot.system/i8k.conf 			/etc/modprobe.d/
-sudo cp ~/archsetup/dot.system/logind.conf			/etc/systemd/
-
-# Disable MPD
-sudo systemctl disable mpd.service
-
-# Copy to .config
-mkdir ~/.config
-cp -r ~/archsetup/dot.config/*		~/.config/
-
-# Copy to .local
-mkdir ~/.local
-cp -r ~/archsetup/dot.local/*			~/.local/
-
-# Copy to .mozilla
-mkdir ~/.mozilla
-cp -r ~/archsetup/dot.mozilla.addons/*	~/.mozilla
-
-# Copy to .icons
-mkdir ~/.icons
-cp -r ~/archsetup/dot.icons/*			~/.icons
-
-# Copy to .themes
-mkdir ~/.themes
-cp -r ~/archsetup/dot.themes/*		~/.themes
-
-# Copy to ~
-cp ~/archsetup/dot.home/{.bashrc,.gtkrc-2.0,.profile,.selected_editor,.xinitrc} ~/
-
-# Add dell-bios-off
-sudo crontab -e
-
-# Customize GRUB
-cd ~/archsetup/dot.system/theme.grub/
-sudo ./install.sh -i -f Terminus.ttf -fs 20 -l --background "Grey"
-cd ~
-
-# Install i8kutils
-mkdir ~/.local/packages
-cd ~/.local/packages
-git clone https://aur.archlinux.org/i8kutils.git
-cd i8kutils
-makepkg
-pacman -U *.pkg.tar.zst
-cd ~

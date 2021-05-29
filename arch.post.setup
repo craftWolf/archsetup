@@ -1,0 +1,60 @@
+#!/bin/bash
+
+nmtui
+
+mkdir downloads files music pictures templates videos workspace
+
+# Disable MPD
+sudo systemctl disable mpd.service
+
+# Copy to .config
+mkdir ~/.config
+cp -r ~/archsetup/dot.config/*		~/.config/
+
+# Copy to .local
+mkdir ~/.local
+cp -r ~/archsetup/dot.local/*			~/.local/
+
+# Copy to .mozilla
+mkdir ~/.mozilla
+cp -r ~/archsetup/dot.mozilla.addons/*	~/.mozilla
+
+# Copy to .icons
+mkdir ~/.icons
+cp -r ~/archsetup/dot.icons/*			~/.icons
+
+# Copy to .themes
+mkdir ~/.themes
+cp -r ~/archsetup/dot.themes/*		~/.themes
+
+# Copy to ~
+cp ~/archsetup/dot.home/{.bashrc,.gtkrc-2.0,.profile,.selected_editor,.xinitrc} ~/
+
+# Install i8kutils
+mkdir ~/.local/packages
+cd ~/.local/packages
+git clone https://aur.archlinux.org/i8kutils.git 
+cd i8kutils
+makepkg
+pacman -U *.pkg.tar.zst
+cd ~
+
+# Copy dell-bios-off, fan modules, systemd-login, xorg.conf
+sudo cp ~/archsetup/dot.system/dell-bios-off 		/opt/
+sudo cp ~/archsetup/dot.system/modules 				/etc
+#sudo cp ~/archsetup/dot.system/xorg.conf 			/etc/X11
+sudo cp ~/archsetup/dot.system/dell-smm-hwmon.conf 	/etc/modprobe.d/
+sudo cp ~/archsetup/dot.system/i8k.conf 			/etc/modprobe.d/
+sudo cp ~/archsetup/dot.system/logind.conf			/etc/systemd/
+
+
+# Add dell-bios-off
+sudo crontab -e
+
+# Customize GRUB
+cd ~/archsetup/dot.system/theme.grub/
+sudo ./install.sh -i -f Terminus.ttf -fs 20 -l --background "Grey"
+cd ~
+
+
+mkdir downloads files music pictures videos templates workspace 
