@@ -70,13 +70,16 @@ grub-mkconfig -o /boot/grub/grub.cfg
 # Tweaking Arch Installation
 
 ## Setting Timezone
-timedatectl set-timezones Europe/Amsterdam
+timedatectl set-timezone Europe/Amsterdam
 systemctl enable systemd-timesyncd
 
 ## Setting Hostname
-hostnamectl set-hostname $2
+hostnamectl set-hostname "$2"
 
 ## Add ip to localhost :  127.0.0.1 localhost
 ## Add ip to host :  127.0.1.1 host-name-here
 echo "127.0.0.1 localhost" >> /etc/hosts
 echo "127.0.1.1 $2" >> /etc/hosts
+sudo pacman -S xorg-server xorg-xinput xorg-xinit awesome linux-lts-headers htop neofetch  rofi ranger pcmanfm gvfs firefox chromium lxappearance docker docker-compose lm_sensors pavucontrol pulseaudio psensor python-pip openjdk-src ttf-fira-code  ttf-font-awesome ttf-hack vim keepassxc simplescreenrecorder obs-studio zathura gnome-screenshot engrampa breeze openvpn wget curl mpd ncmpcpp cmatrix vlc cheese qt5ct ffmpeg ffmpegthumbnailer poppler gedit alacritty lxsession-gtk3
+
+cp .xinitrc ~/
